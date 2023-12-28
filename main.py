@@ -31,14 +31,16 @@ def launchpcremotereceiver():
     playsound('Aa5.mp3')
 
 
+key_function = {
+    'k+1': pcscreenonly,
+    'k+2': duplicate,
+    'k+3': extenddisplay,
+    'k+4': startsecondscreen,
+    'k+5': launchpcremotereceiver,
+}
+
+
 while True:
-    if is_pressed('k+1'):
-        pcscreenonly()
-    elif is_pressed('k+2'):
-        duplicate()
-    elif is_pressed('k+3'):
-        extenddisplay()
-    elif is_pressed('k+4'):
-        startsecondscreen()
-    elif is_pressed('k+5'):
-        launchpcremotereceiver()
+    for key, function in key_function.items():
+        if is_pressed(key):
+            function()
